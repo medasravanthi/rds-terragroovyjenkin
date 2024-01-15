@@ -1,0 +1,13 @@
+node {
+    stage('checkout code') { 
+        checkout scm
+    }
+    stage('init') {
+        sh "terraform init -reconfigure"
+        
+        }
+    stage('apply') {
+        sh "terraform apply --auto-approve"
+        
+        }
+}
